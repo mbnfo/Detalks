@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Detalks</title>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<body>
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <!-- Profile item-->
+            <div class="profile">
+                <img src="{{user.profileimg.url}}" alt="please reload">
+                <h3>{{user}}</h3>
+                <p>Title</p>
+            </div>
+            <!-- menu item-->
+            <ul>
+                <li><a href="" class="active">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="item">Home</span>
+                </a></li>
+                <li><a href="/create_room">
+                    <span class="icon"><i class="fa-sharp fa-solid fa-comments"></i></span>
+                    <span class="item">Create Room</span>
+                </a></li>
+                <li><a href="/describer">
+                    <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                    <span class="item">Info and Donations</span>
+                </a></li>
+            </ul>
+        </div>
+        <!--"Top menu bar"-->
+        <div class="section">
+            <div class="topbar">
+                <div class="title">
+                    <a href="#"><h4>De-talks</h4></a>
+                </div>
+            </div>
+            <div class="insidewrapper">
+                {% for i in user.rooms.all %}
+                <a href="{{i}}">
+                <div class="chatrooms">
+                    <div class="chatroom_img">    
+                    <img src="{{i.pfp.url}}" alt="">
+                    <h4>From {{i.creator}} </h4>
+                    </div>
+                    <h3>{{i}}</h3>
+                    <h4>{{i.topic}}</h4>
+                </div>
+                 </a>
+                {% endfor %}
+                
+
+            </div>
+        </div>
+    </div>
+
+    <!--Now for the script to make it work like you know retract and all that stuff-->
+    <script>
+        var hamburger = document.querySelector(".title");
+        hamburger.addEventListener("click", function(){
+            document.querySelector("body").classList.toggle("active");
+        })
+    </script>
+</body>
+</html>

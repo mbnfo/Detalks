@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/setting_signin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Settings</title>
+</head>
+<body>
+    <div class="body">
+        <div class="sidebar">
+            <h1>De-talks</h1>
+            <img src="/media/static/media/media/images/thisone.png" alt="">
+            <ul>
+                <li>
+                    <span class="icon"><i class="fa-solid fa-user-plus"></i></span>
+                    <span class="item">Signup</span>
+                </li>
+                <li><a href="" class="active">
+                    <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                    <span class="item">Settings</span>
+                </a></li>
+            </ul>
+            <p>this is when you pick categories that will help place you in suitable chat/debate room</p>
+        </div>
+        <div class="signup_box">
+                <h2>Settings</h2>
+            <form method="post" action="settings">
+                {% csrf_token %}
+                <p>Profile pic</p>
+                <input type="file" name="" id="">
+                <p>Pick one of each catagory provided</p>
+                <p>pick your first category</p>
+                <div class="radio">
+                    {% for cat in category %}
+                    <div class="buttons">
+                        <label>
+                              <input class="form-check-input me-1" type="radio" name = 'choice0'value='{{cat}}' >
+                              {{cat}}
+                      </label>
+                    </div>
+                  {% endfor %}
+                </div>
+                <p>pick your second category</p>
+                <div class="radio">
+                    {% for cat in category %}
+                    <div class="buttons">
+                        <label>
+                              <input class="form-check-input me-1" type="radio" name = 'choice1'value='{{cat}}' >
+                              {{cat}}
+                      </label>
+                    </div>
+                  {% endfor %}
+                </div>
+                
+                <p>pick your last category</p>
+                <div class="radio">
+                    {% for cat in category %}
+                    <div class="buttons">
+                        <label>
+                              <input class="form-check-input me-1" type="radio" name = 'choice2'value='{{cat}}' >
+                              {{cat}}
+                      </label>
+                    </div>
+                  {% endfor %}
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>

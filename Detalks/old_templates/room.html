@@ -1,0 +1,210 @@
+<style>
+    @import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
+
+.detailBox {
+    height:30%;
+    width:90%;
+    margin:50px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:2%;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    bottom: auto;
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    overflow:auto;
+    height:160%
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: rgb(226, 217, 217);
+  background-color: white;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+input[name=submit]{
+  background-color: #444;
+}
+input[name=submit] :hover{
+  background-color: whitesmoke;
+}
+</style>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+<script>
+  $(document).ready(function(){
+  
+  setInterval(function(){
+      $.ajax({
+          type: 'GET',
+          url : "/getMessages/{{room}}/",
+          success: function(response){
+              console.log(response);
+              $("#display").empty();
+              for (var key in response.messages)
+              {
+                  var temp="<div class='container darker'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
+                  $("#display").append(temp);
+              }
+          },
+          error: function(response){
+              alert('An error occured')
+          }
+      });
+  },1000);
+  })
+  </script>
+<div class="detailBox">
+    <div class="titleBox">
+      <h4><label>{{room_details}}</label></h4>
+      <a href="/"><button type="button" class="close" aria-hidden="true">Back</button></a>
+      <form method="post">
+        {% csrf_token %}
+              {% for option in room_details.opts.all %}
+              <label>
+                <li class="list-group-item">
+                  <input type="radio" name ='choice' value="{{option.id}}" >
+                  {{option}}  <p>{{option.percentage_vote}}</p>
+                  </li>
+            </label>
+              {% endfor %}
+              {% for message in messages %}
+              {{ message }}
+              {% endfor %}
+              <input type="submit" value = "Submit" class = 'btn btn-primary' name="submit">
+      </form>
+
+    </div>
+    <div class="commentBox">        
+        <p class="taskDescription">Discussion -  {{room_details.topic}}</p>
+    </div>
+    <div class="actionBox" >
+          <ul class="commentList">
+            <div id ='display'>
+              <h4>Start discussion here.</h4>
+
+          
+          </div>
+          </ul>
+      <form id ='post-form'class="form-inline" >
+          <div class="form-group">
+              <input class="form-control" type="text" placeholder="Thoughts...." name="message" id="message" />
+          </div>
+          <div class="form-group">
+              <button class="btn btn-default" type="submit" value = "send">Submit</button>
+          </div>
+          <input type="hidden" name="username" id="username" value="{{username}}"/>
+          <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
+      </form>
+
+     
+    </div>
+</div>
+
+<script type="text/javascript">
+  $(document).on('submit','#post-form',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'POST',
+      url:'/send',
+      data:{
+          username:$('#username').val(),
+          room_id:$('#room_id').val(),
+          message:$('#message').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+      },
+      
+    });
+    document.getElementById('message').value = ''
+  });
+</script>

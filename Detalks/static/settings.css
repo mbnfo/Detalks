@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap');
+*{
+    list-style: none;
+    text-decoration: none;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'open sans' sans-serif;
+}
+.sidebar{
+    background: #000000;
+    position: fixed;
+    top: 0;
+    left:0;
+    width:225px;
+    height:100%;
+    padding:20px 0;
+    overflow: auto;
+    transition:all 0.6s ease;
+}
+
+.profile{
+    margin-bottom:30px;
+    text-align: center;
+}
+
+.profile img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.sidebar ul li a{
+    display: block;
+    padding:13px 30px;
+    color: rgb(241, 237, 237);
+    font-size: 16px;
+    position: relative;
+}
+
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+    color: #0c7db1;
+    background:white;
+    border-right:2px solid rgb(216, 224, 224);
+}
+ .sidebar ul li a:hover .icon,
+ .sidebar ul li a.active .icon{
+    color: #0c7db1;
+}
+ .sidebar ul li a:hover::before,
+ .sidebar ul li a.active::before{
+    display: block;
+}
+
+.topbar{
+    background-color: #000000f1;
+    height:60px;
+    display: flex;
+    align-items:center;
+}
+
+.title{
+    margin-left: 235px;
+    font-size: 50px;
+    transition: all 0.45s ease;
+}
+
+.title h4{
+    color: rgb(241, 237, 237);
+}
+
+.message_box{
+    width:calc(100% - 225px);
+    display: flex;
+    height:83%;
+    width:100%;
+    transition:all 0.6s ease;
+}
+
+.messages{
+    width:calc(100% - 225px);
+    margin-top: 2px;
+    transition: all 0.45s ease;
+}
+
+
+.chatrooms{
+    box-shadow: 0 4px 8px 0 rgba(112, 112, 112, 0.2);
+    margin-top: 5px;
+    margin-left:230px;
+    height: 350px;
+    width: 350px;
+    background-color: whitesmoke;
+    border-radius: 9px;
+    border-width: 1px;
+    border:#dee4ec;    
+    text-align: center;
+    text-justify: distribute;
+}
+
+.chatrooms h3{
+    color: grey;
+    max-lines: 1;
+}
+.chatrooms h4{
+    color: black;
+    max-lines: 1;
+}
+
+.chatroom_img{
+    align-items: center;
+    display: flex;
+    height:25%;
+    background-color: #0c7db1;
+}
+
+.chatroom_img h4{
+    padding-left: 5px;
+    color: #dee4ec;
+}
+
+
+.message_box .chatrooms .chatroom_img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left:5px;
+    margin-top: 2px;
+}
+
+
+.messages img{
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+
+}
+
+.messages form{
+    margin-left: 475px;
+    transition: all 0.45s ease;
+}
+
+.messages form label[for="input"]{
+    margin-top: 12px;
+}
+
+.messages form textarea{
+    margin-top: 15px;
+}
+
+input[type=submit]{
+    height:39px;
+    width: 250px;
+    border:3px;
+    border-radius:8px;
+}
+
+body.active .wrapper .sidebar{
+    left: -255px;
+}
+
+body.active .messages{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+}
+
+body.active .title{
+    margin-left: 5;
+}
+
+body.active .textbox form{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+body.active input[type=text]{
+    height: 39px;
+    width: 1500px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+}

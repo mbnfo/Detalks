@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/create_room.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Room creation</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="profile">
+            <img src="{{user.profileimg.url}}" alt="lol your wifi is bad">
+            <h3>Profile name</h3>
+            <p>Title</p>
+        </div>
+        <!-- menu item-->
+        <ul>
+            <li><a href="/" class="scroll">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span class="item">Home</span>
+            </a></li>
+            <li><a href="" class="active">
+                <span class="icon"><i class="fa-sharp fa-solid fa-comments"></i></span>
+                <span class="item">Create Room</span>
+            </a></li>
+            <li><a href="/describer">
+                <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                <span class="item">Info and Donations</span>
+            </a></li>
+        </ul>
+    </div>
+        </div>
+        <div class="topbar">
+            <div class="title">
+                <a href="#"><h4>Detalks</h4></a>
+            </div>
+        </div>
+        <div class="message_box">
+            <div class="messages">
+                <form method="post" action="checkview">
+                    {% csrf_token %}
+                    <p>Chatroom's name</p><br>
+                    <input type="text" placeholder="No special characters" name="room_name" required minlength="1" pattern="([^\s][A-z0-9À-ž\s]+)"><br>
+
+                    <p>description</p><br>
+                    <input type="text" name='topic' id="topic" width="100px" placeholder="Enter the room topic here"><br>
+                    
+                    <label>Please select the category your chatroom mostly falls under, this helps pick people most suitable for the discussion</label></br>
+                    <div class="radio">
+                        {% for cat in catagories %}
+                        <div class="buttons">
+                            <label>
+                                  <input class="form-check-input me-1" type="radio" name = 'choice'value='{{cat}}' >
+                                  {{cat}}
+                          </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    <label>If needed click here to add a polling option</label>
+                    <a href="/addoption">-Add option-</a><br>
+                    {% for opts in opt.saved.all %}
+                    
+                    <div class="buttons">
+                        <label>
+                                {{opts}} 
+                      </label>
+                    </div>
+                    {%endfor%}
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    var hamburger = document.querySelector(".title");
+    hamburger.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
+</script>
+</html>

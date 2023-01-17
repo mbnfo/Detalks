@@ -1,0 +1,136 @@
+<style>
+    @import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
+
+.detailBox {
+height:30%;
+width:90%;
+margin:2%;
+}
+.titleBox {
+background-color:#fdfdfd;
+padding:2%;
+}
+.titleBox label{
+color:#444;
+margin:0;
+display:inline-block;
+}
+
+.commentBox {
+padding:10px;
+border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+bottom: auto;
+width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+width:18%;
+}
+.actionBox .form-group * {
+width:100%;
+}
+.taskDescription {
+margin-top:10px 0;
+}
+.commentList {
+padding:0;
+list-style:none;
+overflow:auto;
+height:160%
+}
+.commentList li {
+margin:0;
+margin-top:10px;
+}
+.commentList li > div {
+display:table-cell;
+}
+.commenterImage {
+width:30px;
+margin-right:5px;
+height:100%;
+float:left;
+}
+.commenterImage img {
+width:100%;
+border-radius:50%;
+}
+.commentText p {
+margin:0;
+}
+.sub-text {
+color:#aaa;
+font-family:verdana;
+font-size:11px;
+}
+.actionBox {
+border-top:1px dotted #bbb;
+padding:10px;
+}
+input[type=submit]:hover {
+background-color: #000000;
+}
+input[type=submit] {
+width: 100%;;
+padding: 14px 20px;
+background-color: grey;
+margin: 8px 0;
+border-radius: 4px;
+border-top:1px dotted #bbb;
+border: #444;
+cursor: pointer;
+}
+</style>
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+</head>
+<div class="detailBox">
+<div class="titleBox">
+  <label><h4>Settings</h4></label>
+</div>
+<div class="commentBox">
+    
+    <p class="taskDescription">So close to completing your application form</p>
+</div>
+<div class="actionBox">
+    <!--
+        <form class="form-inline" role="form" method="post" action="settings">
+            {% csrf_token %}
+            <label>Please select the first category that you are interested in most</label><br>
+            {% for cat in catagory %}
+              <label>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="radio" name = 'choice0'value='{{cat}}' >
+                    {{cat}}
+                  </li>
+            </label>
+            {% endfor %}<hr>
+            <label>Pls select the second catagory that you are interested in most</label><br>
+            {% for cat in catagory %}           
+              <label>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="radio" name = 'choice1'value='{{cat}}' >
+                    {{cat}}
+                  </li>
+            </label>
+          {% endfor %}<hr>
+          <label>Pls select the last catagory that you are interested in most</label><br>
+             {% for cat in catagory %}
+              <label>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="radio" name = 'choice2'value='{{cat}}' >
+                    {{cat}}
+                  </li>
+            </label>
+            {% endfor %}
+            <input type="submit" value="Start room">
+        </form>
+      -->
+      <form action="settings" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" >
+        <input type="submit" value="">
+      </form>
+</div>

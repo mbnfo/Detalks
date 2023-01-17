@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap');
+*{
+    list-style: none;
+    text-decoration: none;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'open sans' sans-serif;
+}
+.sidebar{
+    background: #000000;
+    position: fixed;
+    top: 0;
+    left:0;
+    width:225px;
+    height:100%;
+    padding:20px 0;
+    overflow: auto;
+    transition:all 0.6s ease;
+}
+
+.profile{
+    margin-bottom:30px;
+    text-align: center;
+}
+
+.profile img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.sidebar ul li a{
+    display: block;
+    padding:13px 30px;
+    color: rgb(241, 237, 237);
+    font-size: 16px;
+    position: relative;
+}
+
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+    color: #0c7db1;
+    background:white;
+    border-right:2px solid rgb(216, 224, 224);
+}
+ .sidebar ul li a:hover .icon,
+ .sidebar ul li a.active .icon{
+    color: #0c7db1;
+}
+ .sidebar ul li a:hover::before,
+ .sidebar ul li a.active::before{
+    display: block;
+}
+
+.topbar{
+    background-color: #000000f1;
+    height:60px;
+    display: flex;
+    align-items:center;
+}
+
+.title{
+    margin-left: 235px;
+    font-size: 50px;
+    transition: all 0.45s ease;
+}
+
+.title h4{
+    color: rgb(241, 237, 237);
+}
+
+.message_box{
+    width:calc(100% - 225px);
+    display: flex;
+    height:83%;
+    width:100%;
+    text-justify: auto;
+    transition:all 0.6s ease;
+}
+
+.messages{
+    width:calc(100% - 225px);
+    margin-top: 2px;
+    margin-left:230px;
+    margin-right:3px;
+    overflow: auto;
+    transition: all 0.45s ease;
+}
+.chatbox{
+    background-color: whitesmoke;
+    max-width: 1110px;
+    min-width: fit-content;
+    min-height: 20px;
+    max-height: fit-content;
+    border-radius: 5px;
+    box-shadow: 10px;
+    margin-top: 5px;
+    transition: all 0.45s ease;
+}
+
+.namebox{
+    background-color: rgb(216, 224, 224);
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.messages p{
+    margin-top: 14px;
+    color: #000000;
+}
+
+.textbox{
+    height: 7.9%;
+    transition:all 0.6s ease;
+}
+
+.textbox form{
+    height: 15px;
+    margin-left: 230px;
+    display: flex;
+    gap: 5px;
+    transition: all 0.45s ease;
+}
+
+input[type=text]{
+    height: 39px;
+    width: 1055px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+}
+
+input[type=submit]{
+    height:39px;
+    width: 1055px;
+    border:3px;
+    border-radius:8px;
+    box-shadow: 2px 2px #888888;
+}
+
+.messages .catagory{
+    min-height: 25px;
+    min-width: 75px;
+    max-height: fit-content;
+    max-width: fit-content;
+    border-radius: 12px;
+    background-color: #0c7db1;
+    gap: 100px;
+}
+
+
+body.active .wrapper .sidebar{
+    left: -255px;
+}
+
+body.active .messages{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+}
+
+body.active .title{
+    margin-left: 5;
+}
+
+body.active .textbox form{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+body.active input[type=text]{
+    height: 39px;
+    width: 1100px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+}
+
+
+  #option-1:checked:checked ~ .option-1,
+  #option-2:checked:checked ~ .option-2{
+    border-color: #0069d9;
+    background: #ffffff;
+  }
+  #option-1:checked:checked ~ .option-1 .dot,
+  #option-2:checked:checked ~ .option-2 .dot{
+    background: #fff;
+  }
+  #option-1:checked:checked ~ .option-1 .dot::before,
+  #option-2:checked:checked ~ .option-2 .dot::before{
+    opacity: 0;
+    transform: scale(1);
+  }
+  .wrapper_1 .option span{
+    font-size: 20px;
+    color: #808080;
+  }
+  #option-1:checked:checked ~ .option-1 span,
+  #option-2:checked:checked ~ .option-2 span{
+    color: #fff;
+  }
+
+  
+.radio{
+    gap: 6px;
+    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(5px, 1fr));
+    margin-left: 5px;
+}
+
+.buttons{
+    height: fit-content;
+    width: fit-content;
+    min-width: 50px;
+    background-color: rgb(201, 197, 197);
+    display: inline-flex;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.radio p{
+    color: rgb(0, 0, 0);
+    margin-left: 15px;
+}
+
+@media only screen and (max-width:600px){
+    .sidebar{
+        background: #000000;
+        position: fixed;
+        top: 0;
+        left:0;
+        width:125px;
+        height:100%;
+        padding:20px 0;
+        overflow: auto;
+        transition:all 0.6s ease;
+    }
+    
+    .profile{
+        margin-bottom:30px;
+        text-align: center;
+    }
+    
+    .profile img{
+        display: block;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    
+    .profile h3{
+        color: white;
+        font-size: 15px;
+    }
+    .profile p{
+        color: white;
+    }
+    
+    .sidebar ul li a{
+        display: block;
+        padding:13px 30px;
+        color: rgb(241, 237, 237);
+        font-size: 15px;
+        position: relative;
+    }
+    
+    
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active{
+        color: #0c7db1;
+        background:white;
+        border-right:2px solid rgb(216, 224, 224);
+    }
+     .sidebar ul li a:hover .icon,
+     .sidebar ul li a.active .icon{
+        color: #0c7db1;
+    }
+     .sidebar ul li a:hover::before,
+     .sidebar ul li a.active::before{
+        display: block;
+    }
+    
+    .topbar{
+        background-color: #000000f1;
+        margin-left: 30px;
+        height:70px;
+        width: 100%;
+        display: flex;
+        align-items:center;
+    }
+    
+    .title{
+        margin-top: 4px;
+        margin-left:100px;
+        font-size: 45px;
+        transition: all 0.45s ease;
+    }
+    
+    .title h4{
+        color: rgb(241, 237, 237);
+    }
+    
+.message_box{
+    display: flex;
+    height:95%;
+    width:72%;
+    margin-left: 130px;
+    text-justify: auto;
+    transition:all 0.6s ease;
+}
+
+.messages{
+    margin-top: 2px;
+    margin-left: 1px;
+    overflow:auto;
+    width: 100%;
+    transition: all 0.45s ease;
+}
+
+.namebox{
+    background-color: rgba(0, 0, 0, 0.24);
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+input[type=text]{
+    height: 39px;
+    width: 98%;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+}
+
+input[type='submit']{
+    margin-top: 5px;
+    height:39px;
+    width: 98%;
+    border:3px;
+    border-radius:8px;
+}
+
+body.active .wrapper .sidebar{
+    left: -255px;
+}
+
+body.active .topbar{
+    margin-left: -9px;
+    width: 110%;
+}
+
+
+body.active .message_box{
+    margin-left: 1px;
+    width: 100%;
+}
+
+body.active .title{
+    margin-left: 5;
+}
+
+body.active .textbox form{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+body.active input[type=text]{
+    height: 39px;
+    width: 98%;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+}
+
+body.active input[type='submit']{
+    margin-top: 5px;
+    height:39px;
+    width: 98%;
+    border:3px;
+    border-radius:8px;
+}
+
+body.active .chatbox{
+    width: max-content;
+    max-width: 95%;
+    min-width: 20px;
+    max-height: fit-content;
+}
+
+.radio{
+    gap: 6px;
+    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
+    margin-left: 5px;
+}
+
+.buttons{
+    height: fit-content;
+    width: fit-content;
+    min-width: 50px;
+    background-color: rgb(201, 197, 197);
+    display: inline-flex;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.radio p{
+    color: rgb(0, 0, 0);
+    margin-left: 15px;
+}
+   
+}
+
+@media only screen and (min-width:700px){
+    .sidebar{
+        background: #000000;
+        position: fixed;
+        top: 0;
+        left:0;
+        width:250px;
+        height:100%;
+        padding:20px 0;
+        overflow: auto;
+        transition:all 0.6s ease;
+    }
+    
+    .profile{
+        margin-bottom:30px;
+        text-align: center;
+    }
+    
+    .profile img{
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    
+    .profile h3{
+        color: white;
+        font-size: 25px;
+    }
+    .profile p{
+        color: white;
+    }
+    
+    .sidebar ul li a{
+        display: block;
+        padding:13px 30px;
+        color: rgb(241, 237, 237);
+        font-size: 15px;
+        position: relative;
+    }
+    
+    
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active{
+        color: #0c7db1;
+        background:white;
+        border-right:2px solid rgb(216, 224, 224);
+    }
+     .sidebar ul li a:hover .icon,
+     .sidebar ul li a.active .icon{
+        color: #0c7db1;
+    }
+     .sidebar ul li a:hover::before,
+     .sidebar ul li a.active::before{
+        display: block;
+    }
+    
+    .topbar{
+        background-color: #000000f1;
+        height:45px;
+        display: flex;
+        align-items:center;
+    }
+    
+    .title{
+        margin-top: 4px;
+        margin-left: 254px;
+        font-size: 45px;
+        transition: all 0.45s ease;
+    }
+    
+    .title h4{
+        color: rgb(241, 237, 237);
+    }
+        
+.message_box{
+    display: flex;
+    height:88%;
+    width:96%;
+    margin-left: 25px;
+    text-justify: auto;
+    transition:all 0.6s ease;
+}
+
+.messages{
+    margin-top: 2px;
+    overflow:auto;
+    width: 100%;
+    transition: all 0.45s ease;
+}
+.chatbox{
+    background-color: rgb(216, 224, 224);
+    width: max-content;
+    max-width: 95%;
+    min-width: 20px;
+    min-height: 25px;
+    max-height: fit-content;
+    border-radius: 5px;
+    border-width: 5px;
+    margin-top: 8px;
+    transition: all 0.45s ease;
+}
+
+.namebox{
+    background-color: rgba(0, 0, 0, 0.24);
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.namebox h4{
+    font-size: large;
+    color: white;
+}
+
+.chatbox p{
+    margin-left: 5px;
+    color: #000000;
+}
+
+.textbox{
+    height: 7.9%;
+    transition:all 0.6s ease;
+}
+
+.textbox form{
+    height: 15px;
+    margin-left: 256px;
+    display: flex;
+    gap: 3px;
+    transition: all 0.45s ease;
+}
+
+input[type=text]{
+    height: 39px;
+    width: 98%;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+}
+
+input[type='submit']{
+    margin-top: 5px;
+    height:39px;
+    width: 98%;
+    border:3px;
+    border-radius:8px;
+}
+
+button{
+    height:39px;
+    width: 50px;
+    border:3px;
+    border-radius:8px;
+}
+
+
+
+body.active .wrapper .sidebar{
+    left: -255px;
+}
+
+body.active .topbar{
+    margin-left: -9px;
+    width: 110%;
+}
+
+
+body.active .message_box{
+    margin-left: 1px;
+    width: 100%;
+}
+
+body.active .title{
+    margin-left: 5;
+}
+
+body.active .textbox form{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+body.active input[type='text']{
+    height: 39px;
+    width: 98%;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+}
+
+body.active .chatbox{
+    width: max-content;
+    max-width: 95%;
+    min-width: 20px;
+    max-height: fit-content;
+}
+
+.radio{
+    gap: 6px;
+    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(6px, 1fr));
+    margin-left: 5px;
+}
+
+.buttons{
+    height: fit-content;
+    width: fit-content;
+    min-width: 50px;
+    background-color: rgb(201, 197, 197);
+    display: inline-flex;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.radio p{
+    color: rgb(0, 0, 0);
+    margin-left: 15px;
+}
+
+.radio input[type='submit']{
+        height:39px;
+        width: 50px;
+        border:3px;
+        border-radius:8px;
+        margin-top: 5px;
+}
+
+}

@@ -1,0 +1,115 @@
+<style>
+@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
+
+.detailBox {
+    height:30%;
+    width:90%;
+    margin:2%;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:2%;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    bottom: auto;
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    overflow:auto;
+    height:160%
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+input[type=button] {
+    width: 100%;
+    background-color:#818589;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+</style>
+<head>
+  <title>De-talks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+</head>
+<body>
+    <div class="detailBox">
+        <div class="titleBox">
+          <label>De-talks</label>
+            <a href="/" ><button type="button" class="close" aria-hidden="true">Home</button></a>
+            
+        </div>
+        <div class="commentBox">
+            
+            <p class="taskDescription"><h5>welcome-{{user}}</h5></p>Please select the chatroom polling system!
+        </div>
+        <div class="actionBox">
+            <ul class="commentList">
+    
+                <form id="post-form" method="POST" action="checkview">
+                    {% csrf_token %}
+                    <li class="list-group-item">
+                            <a href ='/create_room_votes'><input value='create a room with polls' type="button"></a></br>
+                    </li
+                    <li class="list-group-item">
+                            <a href ='/create_room_normal'><input value='create a room without polls' type="button"></a></br>
+                    </li>
+                </form>
+                
+            </ul>
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+    </div>
+</body>

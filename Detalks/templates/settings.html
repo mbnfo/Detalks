@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">            
+            <div class="profile">
+            <img src="{{user.profileimg.url}}" alt="lol your wifi is bad">
+            <h3>Profile name</h3>
+            <p>Title</p>
+        </div>
+        <!-- menu item-->
+        <ul>
+            <li><a href="/" class="scroll">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span class="item">Home</span>
+            </a></li>
+            <li><a href="/create_room">
+                <span class="icon"><i class="fa-sharp fa-solid fa-comments"></i></span>
+                <span class="item">Create Room</span>
+            </a></li>
+            <li><a href="" class="active">
+                <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                <span class="item">Settings</span>
+            </a></li>
+            <li><a href="/describer">
+                <span class="icon"><i class="fa-solid fa-question"></i></span>
+                <span class="item">Help</span>
+            </a></li>
+            <li><a href="">
+                <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                <span class="item">Donations</span>
+            </a></li>
+        </ul>
+    </div>
+        </div>
+        <div class="topbar">
+            <div class="title">
+                <a href="#"><h4>De-talks</h4></a>
+            </div>
+        </div>
+        <div class="message_box">
+            <!--
+            <a href="{{i}}">
+                <div class="chatrooms">
+                    <div class="chatroom_img">    
+                    <img src="thisone.png" alt="">
+                    <h4>From {{user}} </h4>
+                    </div>
+                    <h3>{{i}}</h3>
+                    <h4>{{i.topic}}</h4>
+                </div>
+            </a>-->
+            <div class="messages">
+                <img src="{{user.profileimg.url}}" alt="">
+                <form action="">
+                    <label for="input">Select a new profile </label><br>
+                    <input type="file" name="" id=""><br>
+
+                    <label for="">Bio</label><br>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    var hamburger = document.querySelector(".title");
+    hamburger.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
+</script>
+</html>

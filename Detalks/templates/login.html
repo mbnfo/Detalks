@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="body">
+        <div class="sidebar">
+            <h1>De-talks</h1>
+            <img src="/media/static/media/media/images/thisone.png" alt="">
+            <ul>
+                <li><a href="/signin" class="">
+                    <span class="icon"><i class="fa-solid fa-user-plus"></i></span>
+                    <span class="item">Signup</span>
+                </a></li>
+                <li><a href="/settings_signin">
+                    <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                    <span class="item">Settings</span>
+                </a></li>
+                <li><a href="" class="active">
+                    <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+                    <span class="item">Login</span>
+                </a></li>
+            </ul>
+        </div>
+        <div class="signup_box"> 
+                <h2>Login</h2>
+            <form  role="form" method="post">
+                {% csrf_token %}
+                <p>Name</p>
+                <input class="form-control" type="text" placeholder="username" name="username" required minlength="1">
+                <p>Password</p>
+                <input class="form-control"type="password" name='password'width="100px" placeholder="password" required minlength="8">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+</body>

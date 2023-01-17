@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap');
+*{
+    list-style: none;
+    text-decoration: none;
+    margin:0;
+    padding:0;
+    font-family: 'open sans' sans-serif;
+}
+
+
+.body{
+    display: flex;
+    height: 500px;
+    width: 1000px;
+    margin-top: 80px;
+    margin-left: 180px;
+    box-shadow: 5px 7px #888888;
+    /*border-radius: 15px;*/
+}
+
+.sidebar{
+    background-color: liceblue;
+    width: 600px;
+    height: 100%;
+    border-top-left-radius: 18px;
+    background-color: grey;
+    color: grey;
+}
+
+.sidebar h1{
+    color: whitesmoke;
+    margin-left: 235px;
+    font-size: xx-large;
+    background-color: grey;
+}
+
+.sidebar img{
+    height: 80px;
+    width: 80px;
+    margin-left: 252px;
+    margin-top: 15px;
+    border-radius: 50%;
+}
+
+.sidebar ul{
+    margin-top: 15px;
+    background-color: grey;
+
+}
+
+.sidebar ul li a{
+    display: block;
+    padding:13px 30px;
+    color: white;
+    font-size: 16px;
+    position: relative;
+}
+
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+    color: white;
+    background:rgba(0, 0, 0, 0.445);
+    border-right:2px solid rgb(216, 224, 224);
+}
+ .sidebar ul li a:hover .icon,
+ .sidebar ul li a.active .icon{
+    color: white;
+}
+ .sidebar ul li a:hover::before,
+ .sidebar ul li a.active::before{
+    display: block;
+}
+.signup_box{
+    width: 400px;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.signup_box h2{
+    margin-top: 5px;
+    position: fixed;
+    color: white;
+}
+
+.signup_box form{
+    margin-top: 50px;
+    margin-left: 75px;
+}
+
+.signup_box p{
+    margin-top: 10px;
+    color: white;
+}
+
+
+.signup_box input{
+    width: 250px;
+    height: 25px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.signup_box input[type='submit']{
+    margin-top: 18px;
+    background-color: whitesmoke;
+    height: 35px;
+}
+
+
+@media only screen and (max-width:600px){ 
+    .body{
+    display: flex;
+    height: 500px;
+    width: 400px;
+    margin-top: 50px;
+    margin-left:5px;
+    box-shadow: 5px 7px #888888;
+    /*border-radius: 15px;*/
+}
+
+.sidebar{
+    background-color: liceblue;
+    width: 150px;
+    height: 100%;
+    border-top-left-radius: 18px;
+    background-color: grey;
+    color: rgb(255, 0, 0);
+}
+
+.sidebar p{
+    color: white;
+}
+
+.sidebar h1{
+    color: whitesmoke;
+    margin-left: 45px;
+    font-size: xx-large;
+    background-color: grey;
+}
+
+.sidebar img{
+    height: 80px;
+    width: 80px;
+    margin-left: 25px;
+    margin-top: 15px;
+    border-radius: 50%;
+}
+
+.sidebar ul{
+    margin-top: 15px;
+    background-color: grey;
+
+}
+
+.sidebar ul li a{
+    display: block;
+    padding:13px 30px;
+    color: white;
+    font-size: 16px;
+    position: relative;
+}
+
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+    color: white;
+    background:rgba(0, 0, 0, 0.445);
+    border-right:2px solid rgb(216, 224, 224);
+}
+ .sidebar ul li a:hover .icon,
+ .sidebar ul li a.active .icon{
+    color: white;
+}
+ .sidebar ul li a:hover::before,
+ .sidebar ul li a.active::before{
+    display: block;
+}
+.signup_box{
+    width: 300px;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.signup_box h2{
+    margin-top: 5px;
+    position: fixed;
+    color: white;
+}
+
+.signup_box form{
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.signup_box p{
+    margin-top: 10px;
+    color: white;
+}
+
+
+.signup_box input[type='file']{
+    width: 200px;
+    height: 25px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.signup_box textarea{
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.signup_box input[type='submit']{
+    margin-top: 5px;
+    background-color: whitesmoke;
+    height: 35px;
+    width: 200px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.radio{
+    gap: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+}
+
+.buttons{
+    height: fit-content;
+    width: fit-content;
+    min-width: 25px;
+    background-color: rgb(201, 197, 197);
+    display: inline-flex;
+    border-radius: 10px;
+}
+}
+
+
+@media only screen and (max-width:700px){ .body{
+    display: flex;
+    height: 700px;
+    width: 600px;
+    margin-top: 100px;
+    margin-left:100px;
+    box-shadow: 5px 7px #888888;
+    /*border-radius: 15px;*/
+}
+
+.sidebar{
+    background-color: liceblue;
+    width: 250px;
+    height: 100%;
+    border-top-left-radius: 18px;
+    background-color: grey;
+    color: grey;
+}
+
+.sidebar p{
+    color: white;
+}
+
+.sidebar h1{
+    color: whitesmoke;
+    margin-left: 45px;
+    font-size: xx-large;
+    background-color: grey;
+}
+
+.sidebar img{
+    height: 80px;
+    width: 80px;
+    margin-left: 70px;
+    margin-top: 15px;
+    border-radius: 50%;
+}
+
+.sidebar ul{
+    margin-top: 15px;
+    background-color: grey;
+
+}
+
+.sidebar ul li a{
+    display: block;
+    padding:13px 30px;
+    color: white;
+    font-size: 16px;
+    position: relative;
+}
+
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+    color: white;
+    background:rgba(0, 0, 0, 0.445);
+    border-right:2px solid rgb(216, 224, 224);
+}
+ .sidebar ul li a:hover .icon,
+ .sidebar ul li a.active .icon{
+    color: white;
+}
+ .sidebar ul li a:hover::before,
+ .sidebar ul li a.active::before{
+    display: block;
+}
+.signup_box{
+    width: 450px;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.signup_box h2{
+    margin-top: 5px;
+    position: fixed;
+    color: white;
+}
+
+.signup_box form{
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.signup_box p{
+    margin-top: 10px;
+    color: white;
+}
+
+
+.signup_box input[type='file']{
+    width: 200px;
+    height: 25px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.signup_box textarea{
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.signup_box input[type='submit']{
+    margin-top: 5px;
+    background-color: whitesmoke;
+    height: 35px;
+    width: 200px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.radio{
+    gap: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+}
+
+.buttons{
+    height: fit-content;
+    width: fit-content;
+    min-width: 25px;
+    background-color: rgb(201, 197, 197);
+    display: inline-flex;
+    border-radius: 10px;
+}
+}

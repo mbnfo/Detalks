@@ -1,0 +1,133 @@
+{% load static %}
+<html lang="en">
+<head>
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <link rel="stylesheet" href="/static/chatroom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>{{room}}</title>
+</head>
+<body>   
+<script>
+    $(document).ready(function(){    
+        setInterval(function(){
+            $.ajax({
+                type: 'GET',
+                url : "/getMessages/{{room}}/",
+                success: function(response){
+                    console.log(response);
+                    $("#display").empty();
+                    for (var key in response.messages)
+                    {
+                        var temp="<div class='chatbox'><div class='namebox'><h4>"+response.messages[key].user+"</h4></div><p>"+response.messages[key].value+"</p></div>";
+                        $("#display").append(temp);
+                    }
+                },
+                error: function(response){
+                    alert('An error occured')
+                }
+            });
+        },1000);
+        })
+</script>
+    
+    <div class="wrapper">
+        <div class="sidebar">            
+            <div class="profile">
+                <img src="{{username.profileimg.url}}" alt="please reload">
+            <h3>Profile name</h3>
+            <p>Title</p>
+        </div>
+        <!-- menu item-->
+        <ul>
+            <li><a href="/" class="scroll">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span class="item">Home</span>
+            </a></li>
+            <li><a href="/create_room">
+                <span class="icon"><i class="fa-sharp fa-solid fa-comments"></i></span>
+                <span class="item">Create Room</span>
+            </a></li>
+            <li><a href="/describer">
+                <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                <span class="item">Info and Donations</span>
+            </a></li>
+        </ul>
+    </div>
+        </div>
+        <div class="topbar">
+            <div class="title">
+                <a href="#"><h4>Detalks</h4></a>
+            </div>
+            <div class="wrapper_1">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="radio">
+                        {% for option in room_details.opts.all %}
+                        <div class="buttons">
+                            <label>
+                                  <input class="form-check-input me-1" type="radio" name = 'choice'value='{{option.id}}' >
+                                    {{option}} <p>{{option.percentage_vote}}</p>
+                          </label>
+                        </div>
+                      {% endfor %}
+                        {% if room_details.opts.all.count == 0 %}
+                        <p>Null!</p>
+                          {% else %}
+                          <input type="submit" value="Submit">
+                          {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="message_box">
+            <div class="messages" id="display">
+                <div class="chatbox">
+                    <div class="namebox">
+                        <h4>username</h4>
+                    </div>
+                    <p>hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, magni sint atque molestiae, minima optio nemo cum sunt incidunt porro quod totam! Reiciendis tempore odio vel, totam mollitia architecto repudiandae. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur labore inventore earum exercitationem blanditiis consequuntur deleniti veniam assumenda, sed, magnam, possimus quam ex. Qui, odit? Eligendi beatae vitae veniam illum?</p>
+                </div>
+            </div>
+        </div>
+        <div class="textbox">
+            <form  id ='post-form' name="text_input" class="form-inline">
+                {% csrf_token %}
+                <input class="form-control" type="text" placeholder="Thoughts...." name="message" id="message" />
+                <button class="btn btn-default" type="submit" value = "submit">Submit</button>
+                <input type="hidden" name="username" id="username" value="{{username}}"/>
+                <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
+            </form>
+        </div>
+    </div>
+    
+</body>
+<script>
+    var hamburger = document.querySelector(".title");
+    hamburger.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
+    
+</script>
+<script type="text/javascript">
+    $(document).on('submit','#post-form',function(e){
+      e.preventDefault();
+  
+      $.ajax({
+        type:'POST',
+        url:'/send',
+        data:{
+            username:$('#username').val(),
+            room_id:$('#room_id').val(),
+            message:$('#message').val(),
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        },
+        
+      });
+      document.getElementById('message').value = ''
+    });
+</script>
+</html>
